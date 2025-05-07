@@ -1,0 +1,217 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!-- Farben im Fluent UI-Stil -->
+	<Color x:Key="FluentBackground">#FFF3F3F3</Color>
+	<Color x:Key="FluentBorder">#FFCCCCCC</Color>
+	<Color x:Key="FluentAccent">#FF0078D4</Color>
+	<Color x:Key="FluentRowHover">#FFE5F1FB</Color>
+	<Color x:Key="FluentRowSelected">#FFD0E7FF</Color>
+	<Color x:Key="FluentHeader">#FFF9F9F9</Color>
+	<Color x:Key="FluentHeaderBorder">#FFE1E1E1</Color>
+	<SolidColorBrush x:Key="FluentBackgroundBrush"
+					 Color="{StaticResource FluentBackground}" />
+	<SolidColorBrush x:Key="FluentBorderBrush"
+					 Color="{StaticResource FluentBorder}" />
+	<SolidColorBrush x:Key="FluentAccentBrush"
+					 Color="{StaticResource FluentAccent}" />
+	<SolidColorBrush x:Key="FluentRowHoverBrush"
+					 Color="{StaticResource FluentRowHover}" />
+	<SolidColorBrush x:Key="FluentRowSelectedBrush"
+					 Color="{StaticResource FluentRowSelected}" />
+	<SolidColorBrush x:Key="FluentHeaderBrush"
+					 Color="{StaticResource FluentHeader}" />
+	<SolidColorBrush x:Key="FluentHeaderBorderBrush"
+					 Color="{StaticResource FluentHeaderBorder}" />
+
+	<!-- DataGrid Style im Fluent UI-Stil -->
+	<Style TargetType="DataGrid">
+		<Setter Property="Background"
+				Value="{StaticResource FluentBackgroundBrush}" />
+		<Setter Property="BorderBrush"
+				Value="{StaticResource FluentBorderBrush}" />
+		<Setter Property="BorderThickness"
+				Value="1" />
+		<Setter Property="RowBackground"
+				Value="White" />
+		<Setter Property="AlternatingRowBackground"
+				Value="#FFF6F6F6" />
+		<Setter Property="GridLinesVisibility"
+				Value="Horizontal" />
+		<Setter Property="HorizontalGridLinesBrush"
+				Value="{StaticResource FluentBorderBrush}" />
+		<Setter Property="VerticalGridLinesBrush"
+				Value="{StaticResource FluentBorderBrush}" />
+		<Setter Property="SelectionMode"
+				Value="Extended" />
+		<Setter Property="SelectionUnit"
+				Value="FullRow" />
+		<Setter Property="SnapsToDevicePixels"
+				Value="True" />
+		<Setter Property="CanUserAddRows"
+				Value="False" />
+		<Setter Property="CanUserDeleteRows"
+				Value="False" />
+		<Setter Property="CanUserResizeRows"
+				Value="False" />
+		<Setter Property="RowStyle">
+			<Setter.Value>
+				<Style TargetType="DataGridRow">
+					<Setter Property="Background"
+							Value="Transparent" />
+					<Setter Property="BorderBrush"
+							Value="Transparent" />
+					<Setter Property="BorderThickness"
+							Value="0" />
+					<Setter Property="FontSize"
+							Value="14" />
+					<Setter Property="FontFamily"
+							Value="Segoe UI" />
+					<Setter Property="Foreground"
+							Value="#222" />
+					<Setter Property="Padding"
+							Value="8,0,8,0" />
+					<Setter Property="MinHeight"
+							Value="32" />
+					<Setter Property="Cursor"
+							Value="Arrow" />
+					<Setter Property="SnapsToDevicePixels"
+							Value="True" />
+					<Setter Property="Template">
+						<Setter.Value>
+							<ControlTemplate TargetType="DataGridRow">
+								<Border x:Name="DGR_Border"
+										Background="{TemplateBinding Background}"
+										BorderBrush="{TemplateBinding BorderBrush}"
+										BorderThickness="{TemplateBinding BorderThickness}">
+									<SelectiveScrollingGrid>
+										<SelectiveScrollingGrid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto" />
+											<ColumnDefinition Width="*" />
+										</SelectiveScrollingGrid.ColumnDefinitions>
+										<SelectiveScrollingGrid.RowDefinitions>
+											<RowDefinition Height="*" />
+											<RowDefinition Height="Auto" />
+										</SelectiveScrollingGrid.RowDefinitions>
+										<DataGridCellsPresenter Grid.Column="1"
+																ItemsPanel="{TemplateBinding ItemsPanel}" />
+										<DataGridDetailsPresenter Grid.Row="1"
+																  Grid.Column="1"
+																  Visibility="{TemplateBinding DetailsVisibility}" />
+									</SelectiveScrollingGrid>
+								</Border>
+								<ControlTemplate.Triggers>
+									<Trigger Property="IsSelected"
+											 Value="True">
+										<Setter TargetName="DGR_Border"
+												Property="Background"
+												Value="#FFE5E5E5" />
+										<Setter Property="Foreground"
+												Value="#222" />
+									</Trigger>
+									<Trigger Property="IsMouseOver"
+											 Value="True">
+										<Setter TargetName="DGR_Border"
+												Property="Background"
+												Value="{StaticResource FluentRowHoverBrush}" />
+									</Trigger>
+								</ControlTemplate.Triggers>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="ColumnHeaderStyle">
+			<Setter.Value>
+				<Style TargetType="DataGridColumnHeader">
+					<Setter Property="Background"
+							Value="{StaticResource FluentHeaderBrush}" />
+					<Setter Property="BorderBrush"
+							Value="{StaticResource FluentHeaderBorderBrush}" />
+					<Setter Property="BorderThickness"
+							Value="0,0,1,1" />
+					<Setter Property="FontWeight"
+							Value="SemiBold" />
+					<Setter Property="FontSize"
+							Value="14" />
+					<Setter Property="FontFamily"
+							Value="Segoe UI" />
+					<Setter Property="Foreground"
+							Value="#222" />
+					<Setter Property="HorizontalContentAlignment"
+							Value="Left" />
+					<Setter Property="Padding"
+							Value="8,0,8,0" />
+					<Setter Property="Height"
+							Value="36" />
+					<Setter Property="SnapsToDevicePixels"
+							Value="True" />
+
+				</Style>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- Fluent UI Button Style -->
+	<Style TargetType="Button">
+		<Setter Property="Background"
+				Value="{StaticResource FluentAccentBrush}" />
+		<Setter Property="Foreground"
+				Value="White" />
+		<Setter Property="FontFamily"
+				Value="Segoe UI" />
+		<Setter Property="FontSize"
+				Value="14" />
+		<Setter Property="FontWeight"
+				Value="SemiBold" />
+		<Setter Property="Padding"
+				Value="12,6" />
+		<Setter Property="BorderThickness"
+				Value="0" />
+		<Setter Property="BorderBrush"
+				Value="Transparent" />
+		<Setter Property="Cursor"
+				Value="Hand" />
+		<Setter Property="SnapsToDevicePixels"
+				Value="True" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Border x:Name="border"
+							Background="{TemplateBinding Background}"
+							CornerRadius="4"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}">
+						<ContentPresenter HorizontalAlignment="Center"
+										  VerticalAlignment="Center"
+										  RecognizesAccessKey="True" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver"
+								 Value="True">
+							<Setter TargetName="border"
+									Property="Background"
+									Value="#FF106EBE" />
+						</Trigger>
+						<Trigger Property="IsPressed"
+								 Value="True">
+							<Setter TargetName="border"
+									Property="Background"
+									Value="#FF005A9E" />
+						</Trigger>
+						<Trigger Property="IsEnabled"
+								 Value="False">
+							<Setter TargetName="border"
+									Property="Background"
+									Value="#FFE5E5E5" />
+							<Setter Property="Foreground"
+									Value="#FFBFBFBF" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+</ResourceDictionary>

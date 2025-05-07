@@ -1,0 +1,4 @@
+C:\Users\zenox\source\repos\AsyncManagement\AsyncManagement\obj\Debug\net10.0-windows\MainWindow.g.cs
+C:\Users\zenox\source\repos\AsyncManagement\AsyncManagement\obj\Debug\net10.0-windows\App.g.cs
+C:\Users\zenox\source\repos\AsyncManagement\AsyncManagement\obj\Debug\net10.0-windows\AsyncManagement_MarkupCompile.cache
+C:\Users\zenox\source\repos\AsyncManagement\AsyncManagement\obj\Debug\net10.0-windows\AsyncManagement_MarkupCompile.lref
