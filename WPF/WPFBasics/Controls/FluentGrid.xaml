@@ -1,55 +1,36 @@
 ﻿<UserControl x:Class="WPFBasics.Controls.FluentGrid"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WPFBasics.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             x:Name="root">
-    <Grid Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <!-- DataGrid-Kopfzeile -->
-        <DataGrid ItemsSource="{Binding HeaderItems, ElementName=root}"
-                  AutoGenerateColumns="True"
-                  HeadersVisibility="Column"
-                  Grid.Row="0"
-                  Height="30"
-                  IsReadOnly="True"
-                  CanUserAddRows="False"
-                  CanUserDeleteRows="False"
-                  CanUserResizeRows="False"
-                  CanUserSortColumns="False"
-                  SelectionMode="Single"
-                  SelectionUnit="FullRow">
-            <DataGrid.Style>
-                <Style TargetType="DataGrid">
-                    <Setter Property="Visibility" Value="Visible" />
-                    <Setter Property="Height" Value="30" />
-                </Style>
-            </DataGrid.Style>
-            <DataGrid.Resources>
-                <Style TargetType="DataGridRow">
-                    <Setter Property="Visibility" Value="Collapsed" />
-                </Style>
-            </DataGrid.Resources>
-        </DataGrid>
-        <!-- ProgressBar zwischen Kopfzeile und Datenzeilen -->
-        <ProgressBar Minimum="0"
-                     Maximum="1"
-                     Value="{Binding Progress, ElementName=root}"
-                     Height="20"
-                     Width="{Binding ActualWidth, ElementName=root}"
-                     Margin="0,0,0,0"
-                     IsIndeterminate="{Binding IsLoading, ElementName=root}"
-                     Grid.Row="1">
-            <ProgressBar.Style>
-                <Style TargetType="ProgressBar">
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 mc:Ignorable="d"
+			 d:DesignHeight="450"
+			 d:DesignWidth="800"
+			 x:Name="root">
+	<Grid Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<StackPanel Orientation="Horizontal" >
+            <Button 
+                Command="{Binding LoadDataCommand, ElementName=root}"
+                Content="{Binding LoadDataCommand.Name, ElementName=root}" />
+
+			<!-- ProgressBar on top of the grid -->
+			<ProgressBar Minimum="0"
+						 Maximum="1"
+						 Value="{Binding Progress, ElementName=root}"
+						 Height="30"
+						 Width="{Binding ActualWidth, ElementName=root}"
+						 IsIndeterminate="{Binding IsLoading, ElementName=root}"
+						 Grid.Row="0"
+						 
+						 >
+			</ProgressBar>
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
                     <Setter Property="Visibility" Value="Visible" />
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding Progress, ElementName=root}" Value="1">
@@ -57,25 +38,17 @@
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
-            </ProgressBar.Style>
-        </ProgressBar>
-        <!-- DataGrid-Datenzeilen ohne Kopfzeile -->
-        <DataGrid ItemsSource="{Binding ItemsSource, ElementName=root}"
-                  AutoGenerateColumns="True"
-                  HeadersVisibility="None"
-                  Grid.Row="2"
-                  Margin="0"
-                  CanUserAddRows="False"
-                  CanUserDeleteRows="False"
-                  SelectionMode="Single"
-                  SelectionUnit="FullRow" />
-        <!-- LoadData Button -->
-        <Button Content="Load Data"
-                Command="{Binding LoadDataCommand, ElementName=root}"
-                Width="150"
-                Height="35"
-                Margin="0,10,0,0"
-                Grid.Row="3"
-                HorizontalAlignment="Left" />
-    </Grid>
+            </StackPanel.Style>
+		</StackPanel>
+		
+		<!-- Normal DataGrid -->
+		<DataGrid ItemsSource="{Binding ItemsSource, ElementName=root}"
+				  AutoGenerateColumns="True"
+				  Grid.Row="1"
+				  CanUserAddRows="False"
+				  CanUserDeleteRows="False"
+				  SelectionMode="Single"
+				  SelectionUnit="FullRow"
+				  IsReadOnly="True" />
+	</Grid>
 </UserControl>

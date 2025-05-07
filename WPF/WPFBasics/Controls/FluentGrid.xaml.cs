@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPFBasics.Controls
 {
@@ -32,15 +23,6 @@ namespace WPFBasics.Controls
         }
         public static readonly DependencyProperty ItemsSourceProperty =
             DependencyProperty.Register(nameof(ItemsSource), typeof(IEnumerable), typeof(FluentGrid), new PropertyMetadata(null));
-
-        // Die Headerzeile (üblicherweise ein leeres oder ein Dummy-Item, um die Spalten zu erzeugen)
-        public IEnumerable HeaderItems
-        {
-            get => (IEnumerable)GetValue(HeaderItemsProperty);
-            set => SetValue(HeaderItemsProperty, value);
-        }
-        public static readonly DependencyProperty HeaderItemsProperty =
-            DependencyProperty.Register(nameof(HeaderItems), typeof(IEnumerable), typeof(FluentGrid), new PropertyMetadata(null));
 
         // Fortschritt (0..1)
         public double Progress
@@ -69,5 +51,4 @@ namespace WPFBasics.Controls
         public static readonly DependencyProperty LoadDataCommandProperty =
             DependencyProperty.Register(nameof(LoadDataCommand), typeof(ICommand), typeof(FluentGrid), new PropertyMetadata(null));
     }
-        
 }

@@ -42,7 +42,7 @@ namespace WPFBasics.Common.Command
                 throw new ArgumentNullException(nameof(key));
             if (_commands.ContainsKey(key))
                 throw new ArgumentException($"Ein Command mit dem Schlüssel '{key}' existiert bereits.", nameof(key));
-
+            command.Name = key;
             _commands[key] = command;
         }
 

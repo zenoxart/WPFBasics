@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using WPFBasics.Common.Command;
+using WPFBasics.Common.Permission;
 using WPFBasics.Common.Threading;
 using WPFBasics.Common.ViewModelSupport;
 
@@ -72,6 +73,12 @@ namespace Example.MVVM.ViewModel
             CommandPool.Add("LoadData", new RelayCommand(
                 async _ => await LoadDataAsync(),
                 _ => !ProgressManager.IsLoading));
+
+            // Fügt einen Befehl hinzu, der einen Admin-Befehl ausführt.
+            CommandPool.Add("AdminCommand", new RelayCommand(
+                _ => { Status = "Admin-Befehl ausgeführt."; },
+                _ => true,
+                PermissionType.Admin));
         }
 
         #endregion

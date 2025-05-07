@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using WPFBasics.Common.Permission;
 
 namespace WPFBasics.Common.Command
 {
@@ -10,16 +11,24 @@ namespace WPFBasics.Common.Command
     {
         private readonly Action<object> _execute;
         private readonly Predicate<object> _canExecute;
+        private readonly PermissionType? _requiredPermission;
+
+        /// <summary>
+        /// Der Name des Befehls.
+        /// </summary>
+        public string Name { get; internal set; }
 
         /// <summary>
         /// Initialisiert einen neuen Befehl mit der angegebenen Ausführungs- und Prüf-Logik.
         /// </summary>
         /// <param name="execute">Die auszuführende Aktion.</param>
         /// <param name="canExecute">Optional: Prädikat, das bestimmt, ob der Befehl ausgeführt werden kann.</param>
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
+        /// <param name="requiredPermission">Optional: Die erforderliche Berechtigung, um den Befehl auszuführen.</param>
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute = null, PermissionType? requiredPermission = null)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
+            _requiredPermission = requiredPermission;
         }
 
         /// <summary>
@@ -29,7 +38,8 @@ namespace WPFBasics.Common.Command
         /// <returns>True, wenn der Befehl ausgeführt werden kann, sonst false.</returns>
         public bool CanExecute(object parameter)
         {
-            return _canExecute == null || _canExecute(parameter);
+            return (_requiredPermission == null || PermissionManager.HasPermission(_requiredPermission.Value)) &&
+                   (_canExecute == null || _canExecute(parameter));
         }
 
         /// <summary>
@@ -38,6 +48,11 @@ namespace WPFBasics.Common.Command
         /// <param name="parameter">Optionaler Parameter.</param>
         public void Execute(object parameter)
         {
+            if (_requiredPermission != null && !PermissionManager.HasPermission(_requiredPermission.Value))
+            {
+                throw new UnauthorizedAccessException($"Die Berechtigung '{_requiredPermission}' ist erforderlich, um diesen Befehl auszuführen.");
+            }
+
             _execute(parameter);
         }
 
@@ -46,7 +61,8 @@ namespace WPFBasics.Common.Command
         /// </summary>
         public event EventHandler CanExecuteChanged
         {
-            add => CommandManager.RequerySuggested += value; remove => CommandManager.RequerySuggested -= value;
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
         }
     }
 }

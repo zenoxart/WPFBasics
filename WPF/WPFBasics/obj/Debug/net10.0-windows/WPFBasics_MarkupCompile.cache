@@ -4,17 +4,17 @@
 library
 C#
 .cs
-C:\Users\zenox\source\repos\WPF\WPFBasics\obj\Debug\net10.0-windows\
+C:\Users\U731233\Desktop\@WPF\WPFBasics\WPF\WPFBasics\obj\Debug\net10.0-windows\
 WPFBasics
 none
 false
 TRACE;DEBUG;NET;NET10_0;NETCOREAPP
 
-3-2132920527
+2605605698
 
-25-143758162
-2171375588320
-Controls\AppBar.xaml;Controls\FluentGrid.xaml;Themes\Generic.xaml;
+32113557757
+217-223765779
+Controls\FluentGrid.xaml;Themes\FluentExtension.xaml;
 
 False
 

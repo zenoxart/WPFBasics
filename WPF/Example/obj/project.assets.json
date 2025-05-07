@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net10.0-windows10.0.17763": {
+    "net10.0-windows10.0.26100": {
       "Microsoft.Extensions.Logging.Abstractions/6.0.0": {
         "type": "package",
         "compile": {
@@ -18,11 +18,11 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Microsoft.ML/4.0.2": {
+      "Microsoft.ML/5.0.0-preview.1.25127.4": {
         "type": "package",
         "dependencies": {
-          "Microsoft.ML.CpuMath": "4.0.2",
-          "Microsoft.ML.DataView": "4.0.2",
+          "Microsoft.ML.CpuMath": "5.0.0-preview.1.25127.4",
+          "Microsoft.ML.DataView": "5.0.0-preview.1.25127.4",
           "Newtonsoft.Json": "13.0.3",
           "System.CodeDom": "8.0.0"
         },
@@ -125,18 +125,18 @@
           }
         }
       },
-      "Microsoft.ML.CpuMath/4.0.2": {
+      "Microsoft.ML.CpuMath/5.0.0-preview.1.25127.4": {
         "type": "package",
         "dependencies": {
-          "System.Numerics.Tensors": "8.0.0"
+          "System.Numerics.Tensors": "9.0.0"
         },
         "compile": {
-          "lib/net6.0/Microsoft.ML.CpuMath.dll": {
+          "lib/net8.0/Microsoft.ML.CpuMath.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/Microsoft.ML.CpuMath.dll": {
+          "lib/net8.0/Microsoft.ML.CpuMath.dll": {
             "related": ".xml"
           }
         },
@@ -144,41 +144,41 @@
           "build/netstandard2.0/_._": {}
         },
         "runtimeTargets": {
-          "runtimes/linux-arm/nativeassets/net6.0/_._": {
+          "runtimes/linux-arm/nativeassets/net8.0/_._": {
             "assetType": "native",
             "rid": "linux-arm"
           },
-          "runtimes/linux-arm64/nativeassets/net6.0/_._": {
+          "runtimes/linux-arm64/nativeassets/net8.0/_._": {
             "assetType": "native",
             "rid": "linux-arm64"
           },
-          "runtimes/linux-x64/nativeassets/net6.0/_._": {
+          "runtimes/linux-x64/nativeassets/net8.0/_._": {
             "assetType": "native",
             "rid": "linux-x64"
           },
-          "runtimes/osx-arm64/nativeassets/net6.0/_._": {
+          "runtimes/osx-arm64/nativeassets/net8.0/_._": {
             "assetType": "native",
             "rid": "osx-arm64"
           },
-          "runtimes/osx-x64/nativeassets/net6.0/_._": {
+          "runtimes/osx-x64/nativeassets/net8.0/_._": {
             "assetType": "native",
             "rid": "osx-x64"
           },
-          "runtimes/win-arm64/nativeassets/net6.0/_._": {
+          "runtimes/win-arm64/nativeassets/net8.0/_._": {
             "assetType": "native",
             "rid": "win-arm64"
           },
-          "runtimes/win-x64/nativeassets/net6.0/_._": {
+          "runtimes/win-x64/nativeassets/net8.0/_._": {
             "assetType": "native",
             "rid": "win-x64"
           },
-          "runtimes/win-x86/nativeassets/net6.0/_._": {
+          "runtimes/win-x86/nativeassets/net8.0/_._": {
             "assetType": "native",
             "rid": "win-x86"
           }
         }
       },
-      "Microsoft.ML.DataView/4.0.2": {
+      "Microsoft.ML.DataView/5.0.0-preview.1.25127.4": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Microsoft.ML.DataView.dll": {
@@ -266,20 +266,20 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "System.Numerics.Tensors/8.0.0": {
+      "System.Numerics.Tensors/9.0.0": {
         "type": "package",
         "compile": {
-          "lib/net8.0/System.Numerics.Tensors.dll": {
+          "lib/net9.0/System.Numerics.Tensors.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/System.Numerics.Tensors.dll": {
+          "lib/net9.0/System.Numerics.Tensors.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "System.Threading.RateLimiting/8.0.0": {
@@ -302,7 +302,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "Microsoft.ML": "4.0.2",
+          "Microsoft.ML": "5.0.0-preview.1.25127.4",
           "StackExchange.Redis": "2.8.37"
         },
         "compile": {
@@ -370,10 +370,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.ML/4.0.2": {
-      "sha512": "qY2VXqDTPB2QdVf344dT1XBisIQOIKmaRxIvgu1YUA9XRxv5mvnwuOxxlCJEBO106wIf9oFk8xsllMnlzbpRlQ==",
+    "Microsoft.ML/5.0.0-preview.1.25127.4": {
+      "sha512": "SKrqHCgz+dEcXqn+H8L1IjwJ8kXZi0jeo8JV63MldH+JgQgIcLCRZIG6Ak3AncTAyVQZzMpI4DfACsoWFGBf+g==",
       "type": "package",
-      "path": "microsoft.ml/4.0.2",
+      "path": "microsoft.ml/5.0.0-preview.1.25127.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -394,7 +394,7 @@
         "lib/netstandard2.0/Microsoft.ML.StandardTrainers.xml",
         "lib/netstandard2.0/Microsoft.ML.Transforms.dll",
         "lib/netstandard2.0/Microsoft.ML.Transforms.xml",
-        "microsoft.ml.4.0.2.nupkg.sha512",
+        "microsoft.ml.5.0.0-preview.1.25127.4.nupkg.sha512",
         "microsoft.ml.nuspec",
         "mlnetlogo.png",
         "runtimes/linux-arm/native/libLdaNative.so",
@@ -412,43 +412,43 @@
         "runtimes/win-x86/native/LdaNative.dll"
       ]
     },
-    "Microsoft.ML.CpuMath/4.0.2": {
-      "sha512": "NMbatQ0tNRnMTB4u/hpNWlx9n9lDRRa220Vx78pXloy7Keiwv130SC7AnQyXwveeg6DUOIgk/qUuH3I6MLaD1w==",
+    "Microsoft.ML.CpuMath/5.0.0-preview.1.25127.4": {
+      "sha512": "hbNfE4uO2z3ATQlUbk2WB4N6fqx8nxf50ZTG/ogpC3E7bh3+WseZVQ/T8kp76ducDGCuy5eJ9UAUlghlsiQ3mg==",
       "type": "package",
-      "path": "microsoft.ml.cpumath/4.0.2",
+      "path": "microsoft.ml.cpumath/5.0.0-preview.1.25127.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "THIRD-PARTY-NOTICES.TXT",
         "build/netstandard2.0/Microsoft.ML.CpuMath.props",
-        "lib/net6.0/Microsoft.ML.CpuMath.dll",
-        "lib/net6.0/Microsoft.ML.CpuMath.xml",
+        "lib/net8.0/Microsoft.ML.CpuMath.dll",
+        "lib/net8.0/Microsoft.ML.CpuMath.xml",
         "lib/netstandard2.0/Microsoft.ML.CpuMath.dll",
         "lib/netstandard2.0/Microsoft.ML.CpuMath.xml",
-        "microsoft.ml.cpumath.4.0.2.nupkg.sha512",
+        "microsoft.ml.cpumath.5.0.0-preview.1.25127.4.nupkg.sha512",
         "microsoft.ml.cpumath.nuspec",
         "mlnetlogo.png",
-        "runtimes/linux-arm/nativeassets/net6.0/_._",
-        "runtimes/linux-arm64/nativeassets/net6.0/_._",
-        "runtimes/linux-x64/nativeassets/net6.0/_._",
+        "runtimes/linux-arm/nativeassets/net8.0/_._",
+        "runtimes/linux-arm64/nativeassets/net8.0/_._",
+        "runtimes/linux-x64/nativeassets/net8.0/_._",
         "runtimes/linux-x64/nativeassets/netstandard2.0/libCpuMathNative.so",
         "runtimes/linux-x64/nativeassets/netstandard2.0/libCpuMathNative.so.dbg",
-        "runtimes/osx-arm64/nativeassets/net6.0/_._",
-        "runtimes/osx-x64/nativeassets/net6.0/_._",
+        "runtimes/osx-arm64/nativeassets/net8.0/_._",
+        "runtimes/osx-x64/nativeassets/net8.0/_._",
         "runtimes/osx-x64/nativeassets/netstandard2.0/libCpuMathNative.dylib",
         "runtimes/osx-x64/nativeassets/netstandard2.0/libCpuMathNative.dylib.dwarf",
-        "runtimes/win-arm64/nativeassets/net6.0/_._",
-        "runtimes/win-x64/nativeassets/net6.0/_._",
+        "runtimes/win-arm64/nativeassets/net8.0/_._",
+        "runtimes/win-x64/nativeassets/net8.0/_._",
         "runtimes/win-x64/nativeassets/netstandard2.0/CpuMathNative.dll",
-        "runtimes/win-x86/nativeassets/net6.0/_._",
+        "runtimes/win-x86/nativeassets/net8.0/_._",
         "runtimes/win-x86/nativeassets/netstandard2.0/CpuMathNative.dll"
       ]
     },
-    "Microsoft.ML.DataView/4.0.2": {
-      "sha512": "k8q9UwoCG5WpwnvPS3s46yNU+wkMgAC5F/8OELpPbozcyJw0DZL8WnpnL/mw7E218Ec4SpYz+nxL9P87eAdzmg==",
+    "Microsoft.ML.DataView/5.0.0-preview.1.25127.4": {
+      "sha512": "sBK1mHrepbiIXsQktYkiM25iMtKxV4A9TzvTxAF71Cv7mDODQ/ieIZoXkbi2YZd8Dolhm3V58oM7eo5I8/lQjw==",
       "type": "package",
-      "path": "microsoft.ml.dataview/4.0.2",
+      "path": "microsoft.ml.dataview/5.0.0-preview.1.25127.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -456,7 +456,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard2.0/Microsoft.ML.DataView.dll",
         "lib/netstandard2.0/Microsoft.ML.DataView.xml",
-        "microsoft.ml.dataview.4.0.2.nupkg.sha512",
+        "microsoft.ml.dataview.5.0.0-preview.1.25127.4.nupkg.sha512",
         "microsoft.ml.dataview.nuspec",
         "mlnetlogo.png"
       ]
@@ -584,10 +584,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.Numerics.Tensors/8.0.0": {
-      "sha512": "fhODzTe9ON9IzmRfyVeA6L8yXOciMtpq1YufkRVBliggcVKZE+XDxqIn46+yF4PWR6wNPuDpXtPpuY86VcKxUA==",
+    "System.Numerics.Tensors/9.0.0": {
+      "sha512": "hyJB4UlpAi19Xr9AXzu2NuagKC4lPfHObNMEAA0HmqFz2rX7wKgzeYzO/jM/eBHDhnUGFFEjk5cOoJaxqg5J4A==",
       "type": "package",
-      "path": "system.numerics.tensors/8.0.0",
+      "path": "system.numerics.tensors/9.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -597,19 +597,17 @@
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/System.Numerics.Tensors.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
+        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/System.Numerics.Tensors.targets",
         "lib/net462/System.Numerics.Tensors.dll",
         "lib/net462/System.Numerics.Tensors.xml",
-        "lib/net6.0/System.Numerics.Tensors.dll",
-        "lib/net6.0/System.Numerics.Tensors.xml",
-        "lib/net7.0/System.Numerics.Tensors.dll",
-        "lib/net7.0/System.Numerics.Tensors.xml",
         "lib/net8.0/System.Numerics.Tensors.dll",
         "lib/net8.0/System.Numerics.Tensors.xml",
+        "lib/net9.0/System.Numerics.Tensors.dll",
+        "lib/net9.0/System.Numerics.Tensors.xml",
         "lib/netstandard2.0/System.Numerics.Tensors.dll",
         "lib/netstandard2.0/System.Numerics.Tensors.xml",
-        "system.numerics.tensors.8.0.0.nupkg.sha512",
+        "system.numerics.tensors.9.0.0.nupkg.sha512",
         "system.numerics.tensors.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -650,36 +648,39 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net10.0-windows10.0.17763": [
-      "Microsoft.ML >= 4.0.2",
+    "net10.0-windows10.0.26100": [
+      "Microsoft.ML >= 5.0.0-preview.1.25127.4",
       "RabbitMQ.Client >= 7.1.2",
       "StackExchange.Redis >= 2.8.37",
       "WPFBasics >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zenox\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\U731233\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\27.1.48\\ToolboxNuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zenox\\source\\repos\\WPF\\Example\\Example.csproj",
+      "projectUniqueName": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\Example\\Example.csproj",
       "projectName": "Example",
-      "projectPath": "C:\\Users\\zenox\\source\\repos\\WPF\\Example\\Example.csproj",
-      "packagesPath": "C:\\Users\\zenox\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zenox\\source\\repos\\WPF\\Example\\obj\\",
+      "projectPath": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\Example\\Example.csproj",
+      "packagesPath": "C:\\Users\\U731233\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\Example\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\27.1.48\\ToolboxNuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\zenox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\U731233\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config"
       ],
       "originalTargetFrameworks": [
-        "net10.0-windows10.0.17763.0"
+        "net10.0-windows10.0.26100.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -687,11 +688,11 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net10.0-windows10.0.17763": {
-          "targetAlias": "net10.0-windows10.0.17763.0",
+        "net10.0-windows10.0.26100": {
+          "targetAlias": "net10.0-windows10.0.26100.0",
           "projectReferences": {
-            "C:\\Users\\zenox\\source\\repos\\WPF\\WPFBasics\\WPFBasics.csproj": {
-              "projectPath": "C:\\Users\\zenox\\source\\repos\\WPF\\WPFBasics\\WPFBasics.csproj"
+            "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\WPFBasics\\WPFBasics.csproj": {
+              "projectPath": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\WPFBasics\\WPFBasics.csproj"
             }
           }
         }
@@ -709,12 +710,12 @@
       "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
-      "net10.0-windows10.0.17763": {
-        "targetAlias": "net10.0-windows10.0.17763.0",
+      "net10.0-windows10.0.26100": {
+        "targetAlias": "net10.0-windows10.0.26100.0",
         "dependencies": {
           "Microsoft.ML": {
             "target": "Package",
-            "version": "[4.0.2, )"
+            "version": "[5.0.0-preview.1.25127.4, )"
           },
           "RabbitMQ.Client": {
             "target": "Package",
@@ -739,7 +740,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.Windows.SDK.NET.Ref",
-            "version": "[10.0.17763.57, 10.0.17763.57]"
+            "version": "[10.0.26100.57, 10.0.26100.57]"
           }
         ],
         "frameworkReferences": {
