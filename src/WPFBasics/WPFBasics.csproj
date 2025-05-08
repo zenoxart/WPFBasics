@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Fonts\FluentSystemIcons-Regular.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.ML" Version="5.0.0-preview.1.25127.4" />
     <PackageReference Include="StackExchange.Redis" Version="2.8.37" />
   </ItemGroup>
@@ -16,6 +20,31 @@
   <ItemGroup>
     <Folder Include="Common\MVVM\ViewSupport\" />
     <Folder Include="Common\Permission\" />
+    <Resource Include="Assets\Fonts\FluentSystemIcons-Regular.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  <Resource Include="Assets\Fonts\FluentSystemIcons-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Assets\Fonts\FluentSystemIconsRegular.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FluentSystemIconsRegular.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Assets\Fonts\FluentSystemIconsRegular.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FluentSystemIconsRegular.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Common\Extensions\FontMapping\License - Fluent System Icons.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
