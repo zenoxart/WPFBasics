@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B286F5E-1DA4-C61D-7861-80C46E44F0B3}|UI\\UI.csproj|c:\\users\\u731233\\desktop\\@wpf\\wpfbasics\\wpf\\ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{5B286F5E-1DA4-C61D-7861-80C46E44F0B3}|UI\\UI.csproj|solutionrelative:ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B286F5E-1DA4-C61D-7861-80C46E44F0B3}|UI\\UI.csproj|c:\\users\\u731233\\desktop\\@wpf\\wpfbasics\\wpf\\ui\\mvvm\\viewmodel\\testviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B286F5E-1DA4-C61D-7861-80C46E44F0B3}|UI\\UI.csproj|solutionrelative:ui\\mvvm\\viewmodel\\testviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{843A1475-46CA-4036-94D5-EF8B7857D1AF}|WPFBasics\\WPFBasics.csproj|c:\\users\\u731233\\desktop\\@wpf\\wpfbasics\\wpf\\wpfbasics\\common\\handler\\menuhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{843A1475-46CA-4036-94D5-EF8B7857D1AF}|WPFBasics\\WPFBasics.csproj|solutionrelative:wpfbasics\\common\\handler\\menuhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{843A1475-46CA-4036-94D5-EF8B7857D1AF}|WPFBasics\\WPFBasics.csproj|c:\\users\\u731233\\desktop\\@wpf\\wpfbasics\\wpf\\wpfbasics\\controls\\fluentgrid.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -17,6 +13,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{843A1475-46CA-4036-94D5-EF8B7857D1AF}|WPFBasics\\WPFBasics.csproj|c:\\users\\u731233\\desktop\\@wpf\\wpfbasics\\wpf\\wpfbasics\\themes\\fluentextension.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{843A1475-46CA-4036-94D5-EF8B7857D1AF}|WPFBasics\\WPFBasics.csproj|solutionrelative:wpfbasics\\themes\\fluentextension.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B286F5E-1DA4-C61D-7861-80C46E44F0B3}|UI\\UI.csproj|c:\\users\\u731233\\desktop\\@wpf\\wpfbasics\\wpf\\ui\\mvvm\\viewmodel\\testviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B286F5E-1DA4-C61D-7861-80C46E44F0B3}|UI\\UI.csproj|solutionrelative:ui\\mvvm\\viewmodel\\testviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B286F5E-1DA4-C61D-7861-80C46E44F0B3}|UI\\UI.csproj|c:\\users\\u731233\\desktop\\@wpf\\wpfbasics\\wpf\\ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5B286F5E-1DA4-C61D-7861-80C46E44F0B3}|UI\\UI.csproj|solutionrelative:ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{843A1475-46CA-4036-94D5-EF8B7857D1AF}|WPFBasics\\WPFBasics.csproj|c:\\users\\u731233\\desktop\\@wpf\\wpfbasics\\wpf\\wpfbasics\\controls\\fluentgrid.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,7 +58,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "MenuHandler.cs",
+              "DocumentMoniker": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\WPFBasics\\Common\\Handler\\MenuHandler.cs",
+              "RelativeDocumentMoniker": "WPFBasics\\Common\\Handler\\MenuHandler.cs",
+              "ToolTip": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\WPFBasics\\Common\\Handler\\MenuHandler.cs",
+              "RelativeToolTip": "WPFBasics\\Common\\Handler\\MenuHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-08T05:05:33.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "FluentExtension.xaml",
               "DocumentMoniker": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\WPFBasics\\Themes\\FluentExtension.xaml",
               "RelativeDocumentMoniker": "WPFBasics\\Themes\\FluentExtension.xaml",
@@ -66,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "RelayCommand.cs",
               "DocumentMoniker": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\WPFBasics\\Common\\Command\\RelayCommand.cs",
               "RelativeDocumentMoniker": "WPFBasics\\Common\\Command\\RelayCommand.cs",
@@ -74,12 +91,11 @@
               "RelativeToolTip": "WPFBasics\\Common\\Command\\RelayCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T14:48:40.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T14:48:40.48Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "RelayCommandPool.cs",
               "DocumentMoniker": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\WPFBasics\\Common\\Command\\RelayCommandPool.cs",
               "RelativeDocumentMoniker": "WPFBasics\\Common\\Command\\RelayCommandPool.cs",
@@ -87,12 +103,11 @@
               "RelativeToolTip": "WPFBasics\\Common\\Command\\RelayCommandPool.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAACwAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T14:48:34.573Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T14:48:34.573Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "FluentGrid.xaml.cs",
               "DocumentMoniker": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\WPFBasics\\Controls\\FluentGrid.xaml.cs",
               "RelativeDocumentMoniker": "WPFBasics\\Controls\\FluentGrid.xaml.cs",
@@ -100,20 +115,18 @@
               "RelativeToolTip": "WPFBasics\\Controls\\FluentGrid.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T14:31:17.468Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T14:31:17.468Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\UI\\MainWindow.xaml",
               "RelativeDocumentMoniker": "UI\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\UI\\MainWindow.xaml",
               "RelativeToolTip": "UI\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-07T14:26:02.981Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T14:26:02.981Z"
             }
           ]
         }
@@ -125,8 +138,8 @@
       "FloatingWindowState": {
         "Id": "bca9d853-5aa6-47e4-ad9a-9d1e5baecd02",
         "Display": 1,
-        "X": 307,
-        "Y": 91,
+        "X": 191,
+        "Y": 20,
         "Width": 1881,
         "Height": 1315,
         "WindowState": 2
@@ -134,11 +147,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "FluentGrid.xaml",
               "DocumentMoniker": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\WPFBasics\\Controls\\FluentGrid.xaml",
               "RelativeDocumentMoniker": "WPFBasics\\Controls\\FluentGrid.xaml",
@@ -150,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "TestViewModel.cs",
               "DocumentMoniker": "C:\\Users\\U731233\\Desktop\\@WPF\\WPFBasics\\WPF\\UI\\MVVM\\ViewModel\\TestViewModel.cs",
               "RelativeDocumentMoniker": "UI\\MVVM\\ViewModel\\TestViewModel.cs",
@@ -158,8 +171,7 @@
               "RelativeToolTip": "UI\\MVVM\\ViewModel\\TestViewModel.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAAowFIAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T14:36:31.337Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T14:36:31.337Z"
             }
           ]
         }

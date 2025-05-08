@@ -1,0 +1,61 @@
+# Build-Verzeichnisse
+bin/
+obj/
+Debug/
+Release/
+
+# Benutzerdefinierte Konfigurationsdateien
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Paket-Manager
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Log-Dateien
+*.log
+
+# Temporäre Dateien
+*.tmp
+*.temp
+*.cache
+*.csproj.user
+*.pidb
+*.svclog
+*.tlog
+*.ide
+
+# Visual Studio spezifisch
+.vs/
+.vscode/
+*.psess
+*.vspx
+*.vsp
+*.vsmdi
+TestResults/
+
+# Resharper/JetBrains Rider
+_ReSharper*/
+*.DotSettings.user
+.idea/
+
+# Windows spezifisch
+Thumbs.db
+desktop.ini
+
+# Sonstige
+*.DS_Store
+*.bak
+*.swp
+*.orig
+*.rej
+
+# Lokale Einstellungen
+appsettings.Development.json
+appsettings.Local.json
