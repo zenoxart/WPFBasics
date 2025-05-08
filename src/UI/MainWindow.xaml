@@ -32,9 +32,9 @@
 								 Progress="{Binding grdExampleData2.Progress}"
 								 IsLoading="{Binding grdExampleData2.IsLoading}"
 								 LoadDataCommand="{Binding CommandPool[LoadExampleData2]}"
-								 Width="300"
+								 Width="800"
 								 Height="240"
-								 Margin="0,20,0,0" />
+								 Margin="20,20,0,0" />
 		</StackPanel>
 	</DockPanel>
 </Window>

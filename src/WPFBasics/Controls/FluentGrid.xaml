@@ -18,7 +18,7 @@
 		<Border>
 			<DockPanel >
 				<StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
-					<TextBlock Text="{Binding LoadDataCommand.Name, ElementName=root}" VerticalAlignment="Center" Margin="5,0,0,0,"/>
+					<TextBlock Text="{Binding LoadDataCommand.Name, ElementName=root}" VerticalAlignment="Center" Margin="5,0,0,0"/>
 					
 
 				</StackPanel>
