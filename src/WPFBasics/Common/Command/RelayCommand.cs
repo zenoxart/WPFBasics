@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Diagnostics;
+using System.Windows.Input;
 using WPFBasics.Common.Permission;
 
 namespace WPFBasics.Common.Command
@@ -43,7 +44,7 @@ namespace WPFBasics.Common.Command
         }
 
         /// <summary>
-        /// Führt die hinterlegte Aktion aus.
+        /// Führt die hinterlegte Aktion aus und misst die Ausführungszeit.
         /// </summary>
         /// <param name="parameter">Optionaler Parameter.</param>
         public void Execute(object parameter)
@@ -53,7 +54,17 @@ namespace WPFBasics.Common.Command
                 throw new UnauthorizedAccessException($"Die Berechtigung '{_requiredPermission}' ist erforderlich, um diesen Befehl auszuführen.");
             }
 
-            _execute(parameter);
+            var stopwatch = Stopwatch.StartNew();
+            try
+            {
+                _execute(parameter);
+            }
+            finally
+            {
+                stopwatch.Stop();
+                RelayCommandPool.LogExecution(Name, stopwatch.Elapsed);
+                stopwatch = null; // Dispose des Stopwatches
+            }
         }
 
         /// <summary>

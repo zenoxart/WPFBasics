@@ -11,7 +11,24 @@ namespace WPFBasics.Common.Command
     [DebuggerDisplay("Count = {Count}")]
     public class RelayCommandPool : IEnumerable<KeyValuePair<string, RelayCommand>>
     {
-        private readonly Dictionary<string, RelayCommand> _commands = [];
+        private readonly Dictionary<string, RelayCommand> _commands = new();
+        private static readonly List<string> _executionLog = new();
+
+        /// <summary>
+        /// Protokolliert die Ausführung eines RelayCommands.
+        /// </summary>
+        /// <param name="commandName">Der Name des ausgeführten Befehls.</param>
+        /// <param name="executionTime">Die Ausführungsdauer.</param>
+        public static void LogExecution(string commandName, TimeSpan executionTime)
+        {
+            string logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} : Command '{commandName}' executed and took {executionTime.TotalMilliseconds} ms.";
+            _executionLog.Add(logEntry);
+        }
+
+        /// <summary>
+        /// Gibt die Liste der Ausführungsprotokolle zurück.
+        /// </summary>
+        public IReadOnlyList<string> ExecutionLog => _executionLog.AsReadOnly();
 
         /// <summary>
         /// Fügt einen neuen RelayCommand mit dem angegebenen Schlüssel hinzu.

@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using UI.MVVM.Model;
 using WPFBasics.Common.Command;
+using WPFBasics.Common.MVVM.ViewSupport;
 using WPFBasics.Common.Permission;
 using WPFBasics.Common.Threading;
 using WPFBasics.Common.ViewModelSupport;
@@ -51,10 +52,12 @@ namespace UI.MVVM.ViewModel
         public TestViewModel()
         {
             // Fügt einen Befehl hinzu, der "Hello World" als Status setzt.
-            CommandPool.Add("SayHello", new RelayCommand(
+            CommandPool.Add("OpenExecutionLog", new RelayCommand(
                 _ =>
                 {
-                    Status = "Hello World";
+                    var exelogWindow = new ExecutionLogWindow();
+                    exelogWindow.ExecutionLogList = CommandPool.ExecutionLog.ToList();
+                    exelogWindow.Show();
                 },
                 _ => true));
 
@@ -79,6 +82,7 @@ namespace UI.MVVM.ViewModel
                 async _ => await LoadExampleData1Async(),
                 _ => !grdExampleData1.IsLoading))
             ;
+
             // Fügt einen Befehl hinzu, der asynchron Testdaten lädt.
             CommandPool.Add("LoadExampleData2", new RelayCommand(
                 async _ => await LoadExampleData2Async(),
