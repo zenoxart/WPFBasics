@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net10.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+		<LangVersion>Preview</LangVersion>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<Title>Zenox WPF UI Example App</Title>
+		<Product>WPF UI Example-Framework</Product>
+		<Description>Integrates the Zenox.Wpf.Core Lib in a WPF-UI Application</Description>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Zenox.Wpf.Core\Zenox.Wpf.Core.csproj" />
+	</ItemGroup>
+
+</Project>
