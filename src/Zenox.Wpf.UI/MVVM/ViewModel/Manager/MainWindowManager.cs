@@ -6,14 +6,10 @@ using Zenox.Wpf.Core.Common.Permission;
 using Zenox.Wpf.Core.Common.Threading;
 using Zenox.Wpf.UI.MVVM.Model;
 
-namespace Zenox.Wpf.UI.MVVM.ViewModel
+namespace Zenox.Wpf.UI.MVVM.ViewModel.Manager
 {
-    /// <summary>
-    /// ViewModel für Testzwecke mit Beispielbefehlen und asynchronem Ladevorgang.
-    /// </summary>
-    public class TestViewModel : ViewModelNotifyPropertyBase
+    public class MainWindowManager : NotificationBase
     {
-
         #region Eigenschaften
 
         /// <summary>
@@ -49,7 +45,7 @@ namespace Zenox.Wpf.UI.MVVM.ViewModel
         /// <summary>
         /// Initialisiert das TestViewModel und legt die verfügbaren Befehle an.
         /// </summary>
-        public TestViewModel()
+        public MainWindowManager()
         {
             // Fügt einen Befehl hinzu, der "Hello World" als Status setzt.
             CommandPool.Add("OpenExecutionLog", new RelayCommand(
@@ -139,7 +135,6 @@ namespace Zenox.Wpf.UI.MVVM.ViewModel
 
         #endregion
     }
-
     /// <summary>
     /// Repräsentiert einen Testdatensatz mit Name, Alter und Adresse.
     /// </summary>

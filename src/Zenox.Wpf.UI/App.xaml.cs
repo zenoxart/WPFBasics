@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using Zenox.Wpf.Core.Common.MVVM.FactoryInjection;
+using Zenox.Wpf.UI.MVVM.ViewModel;
 
 namespace Zenox.Wpf.UI;
 
@@ -12,8 +14,15 @@ public partial class App : Application
         // Alternative initialization using a direct instance creation
         //var fontMapper = new FontMapper();
 
-        var mainWindow = new MainWindow();
-        mainWindow.Show();
+        //var mainWindow = new MainWindow();
+        //mainWindow.Show();
+
+        var appKontext = new AppKontext();
+
+        var appModel = appKontext.Produziere<AppViewModel>();
+
+        appModel.UIAnzeigen();
+
     }
 }
 

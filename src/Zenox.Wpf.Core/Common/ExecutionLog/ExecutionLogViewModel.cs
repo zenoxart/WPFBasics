@@ -2,7 +2,7 @@
 
 namespace Zenox.Wpf.Core.Common.ExecutionLog
 {
-    internal class ExecutionLogViewModel : ViewModelNotifyPropertyBase
+    internal class ExecutionLogViewModel : NotificationBase
     {
         public List<string> ExecutionLogList
         {

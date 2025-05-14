@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using Zenox.Wpf.UI.MVVM.ViewModel;
 
 namespace Zenox.Wpf.UI;
 
@@ -11,6 +10,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        DataContext = new TestViewModel();
+        var context = DataContext;
+        //DataContext = new TestViewModel();
     }
 }

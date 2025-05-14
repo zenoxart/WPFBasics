@@ -7,7 +7,7 @@ namespace Zenox.Wpf.Core.Common.Threading
     /// Stellt einen Fortschritts-Wrapper für eine Datagrid-Datenquelle bereit, inklusive Ladefortschritt, Status und asynchronem Laden.
     /// </summary>
     /// <typeparam name="T">Der Typ der Elemente, die im Datagrid angezeigt werden.</typeparam>
-    public class DatagridProgress<T> : ViewModelNotifyPropertyBase
+    public class DatagridProgress<T> : NotificationBase
     {
 
         /// <summary>
