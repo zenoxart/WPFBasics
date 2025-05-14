@@ -30,7 +30,7 @@
     /// Stellt einen Dienst zum
     /// Verwalten des Anwendungsprotolls bereit
     /// </summary>
-    public class LogManager : AppObject
+    public class AppLogManager : AppObject
     {
         #region Zum Ein- und Abschalten
 

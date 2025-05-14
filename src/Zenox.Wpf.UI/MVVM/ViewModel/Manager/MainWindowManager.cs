@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using Zenox.Wpf.Core.Common.Command;
 using Zenox.Wpf.Core.Common.MVVM.ViewModelSupport;
 using Zenox.Wpf.Core.Common.MVVM.ViewSupport;
@@ -42,6 +43,7 @@ namespace Zenox.Wpf.UI.MVVM.ViewModel.Manager
             }
         }
 
+
         /// <summary>
         /// Initialisiert das TestViewModel und legt die verfügbaren Befehle an.
         /// </summary>
@@ -58,10 +60,23 @@ namespace Zenox.Wpf.UI.MVVM.ViewModel.Manager
                 _ => true));
 
             // Fügt einen Befehl hinzu, der eine Beispiel-Inkrement-Nachricht als Status setzt.
-            CommandPool.Add("Increment", new RelayCommand(
-                _ =>
+            CommandPool.Add("ChangeLanguage", new RelayCommand(
+                iso =>
                 {
-                    Status = "Hello 1, 2, 3, 4, 5";
+                    if (!string.IsNullOrEmpty(iso as string))
+                    {
+                        this.Kontext.Sprachen.Festlegen(iso as string);
+
+                        if (Kontext.Sprachen.AktuelleSprache.Code == "En")
+                        {
+
+                            MessageBox.Show($"Language changed to {this.Kontext.Sprachen.AktuelleSprache.Name}!");
+                        }
+                        else if (Kontext.Sprachen.AktuelleSprache.Code == "De")
+                        {
+                            MessageBox.Show($"Sprache gewechselt zu {this.Kontext.Sprachen.AktuelleSprache.Name}!");
+                        }
+                    }
                 },
                 _ => true));
 

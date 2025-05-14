@@ -1,18 +1,46 @@
 ﻿<Window x:Class="Zenox.Wpf.UI.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:Zenox.Wpf.UI"
 		xmlns:controls="clr-namespace:Zenox.Wpf.Core.Controls;assembly=Zenox.Wpf.Core"
 		mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+		Title="MainWindow"
+		Height="450"
+		Width="800">
 	<Grid>
 		<Grid.RowDefinitions>
+			<RowDefinition Height="auto" />
 			<RowDefinition Height="*" />
 			<RowDefinition Height="auto" />
 		</Grid.RowDefinitions>
-		<StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10">
+
+		<StackPanel>
+			<Menu>
+				<MenuItem Header="Files"></MenuItem>
+				<MenuItem Header="Files"></MenuItem>
+				<MenuItem Header="Sprache"
+						  ItemsSource="{Binding Kontext.Sprachen.Liste}">
+					<MenuItem.ItemContainerStyle>
+						<Style TargetType="MenuItem">
+							<Setter Property="Header"
+									Value="{Binding Name}" />
+							<Setter Property="Command"
+									Value="{Binding DataContext.MainWindow.CommandPool[ChangeLanguage], 
+                                                    RelativeSource={RelativeSource AncestorType=Window}}" />
+							<Setter Property="CommandParameter"
+									Value="{Binding Code}" />
+						</Style>
+					</MenuItem.ItemContainerStyle>
+				</MenuItem>
+			</Menu>
+		</StackPanel>
+
+		<StackPanel Orientation="Horizontal"
+					VerticalAlignment="Top"
+					Margin="10"
+					Grid.Row="1">
 			<!-- Nur noch das UserControl verwenden, kein äußeres Grid mehr -->
 			<controls:FluentGrid ItemsSource="{Binding MainWindow.grdExampleData1.Items}"
 								 Progress="{Binding MainWindow.grdExampleData1.Progress}"
@@ -30,7 +58,8 @@
 								 Margin="20,20,0,0" />
 		</StackPanel>
 
-		<StackPanel Grid.Row="1" Height="35">
+		<StackPanel 
+					Grid.Row="2" Orientation="Horizontal">
 			<Button Command="{Binding MainWindow.CommandPool[OpenExecutionLog]}"
 					Width="150"
 					Height="35"

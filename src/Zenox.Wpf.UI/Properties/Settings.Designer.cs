@@ -31,5 +31,17 @@ namespace Zenox.Wpf.UI.Properties {
                 return ((string)(this["HauptUITyp"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("de")]
+        public string LocalisationISO {
+            get {
+                return ((string)(this["LocalisationISO"]));
+            }
+            set {
+                this["LocalisationISO"] = value;
+            }
+        }
     }
 }

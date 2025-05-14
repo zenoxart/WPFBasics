@@ -1,4 +1,6 @@
-﻿namespace Zenox.Wpf.Core.Common.MVVM.FactoryInjection
+﻿using Zenox.Wpf.Core.Common.MVVM.FactoryInjection.Localisation;
+
+namespace Zenox.Wpf.Core.Common.MVVM.FactoryInjection
 {
     public class AppKontext
     {
@@ -60,22 +62,49 @@
         /// <summary>
         /// Internes Feld für die Eigenschaft
         /// </summary>
-        private LogManager _Log = null!;
+        private AppLogManager _Log = null!;
 
         /// <summary>
         /// Ruft den Protokolldienst ab
         /// </summary>
-        public LogManager Log
+        public AppLogManager Log
         {
             get
             {
                 if (this._Log == null)
                 {
-                    this._Log = this.Produziere<LogManager>();
+                    this._Log = this.Produziere<AppLogManager>();
                 }
 
                 return this._Log;
             }
         }
+
+        #region Sprachendienst
+
+        /// <summary>
+        /// Internes Feld für die Eigenschaft
+        /// </summary>
+        private AppSprachenManager _Sprachen = null!;
+
+        /// <summary>
+        /// Ruft den Dienst zum Arbeiten
+        /// mit den Anwendungssprachen ab
+        /// </summary>
+        public AppSprachenManager Sprachen
+        {
+            get
+            {
+                if (this._Sprachen == null)
+                {
+                    this._Sprachen
+                        = this.Produziere<AppSprachenManager>();
+                }
+
+                return this._Sprachen;
+            }
+        }
+
+        #endregion Sprachendienst
     }
 }
