@@ -1,6 +1,6 @@
 ﻿namespace Zenox.Wpf.Core.Common.MVVM.FactoryInjection
 {
-    public class AppObject
+    public class AppObject : IAppObject
     {
         public AppKontext Kontext { get; set; } = null!;
 
@@ -16,7 +16,7 @@
         /// Löst das Ereignis FehlerAufgetreten aus
         /// </summary>
         /// <param name="e">Ereignisdaten</param>
-        protected virtual void OnFehlerAufgetreten(
+        public virtual void OnFehlerAufgetreten(
                         FehlerAufgetretenEventArgs e)
         {
             // Damit die Garbage Collection
@@ -25,6 +25,12 @@
             var BehandlerKopie = this.FehlerAufgetreten;
 
             BehandlerKopie?.Invoke(this, e);
+        }
+
+
+        void IAppObject.OnFehlerAufgetreten(FehlerAufgetretenEventArgs e)
+        {
+            OnFehlerAufgetreten(e);
         }
 
         #region Protokollierung ...
@@ -49,6 +55,17 @@
                         .DeclaringType!.FullName;
                 this.Kontext.Log.Eintragen($"{Besitzer}.{aufrufer} beendet.");
             }
+        }
+
+
+        void IAppObject.StartMelden(string aufrufer)
+        {
+            StartMelden(aufrufer);
+        }
+
+        void IAppObject.EndeMelden(string aufrufer)
+        {
+            EndeMelden(aufrufer);
         }
         #endregion Protokollierung ...
     }

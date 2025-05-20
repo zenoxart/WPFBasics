@@ -1,48 +1,45 @@
-﻿using Zenox.Wpf.Core.Common.MVVM.FactoryInjection.Localisation;
+﻿using System.Collections.Concurrent;
+using Zenox.Wpf.Core.Common.MVVM.FactoryInjection.Localisation;
 
 namespace Zenox.Wpf.Core.Common.MVVM.FactoryInjection
 {
     public class AppKontext
     {
-        #region Anwendungsobjekt-Fabrik
+        // Thread-sichere Dictionary für generische Manager-Instanzen
+        private readonly ConcurrentDictionary<Type, AppObject> _managerCache = new();
 
         /// <summary>
-        /// Gibt ein initialisierten
-        /// Anwendungsobjekt zurück
+        /// Gibt einen Manager generisch zurück und erzeugt ihn bei Bedarf.
         /// </summary>
-        /// <typeparam name="T">Der Datentyp
-        /// des benötigten Anwendungsobjekts</typeparam>
-        /// <returns>Ein Objekt, wo die Kontext
-        /// Eigenschaft initialisiert ist und
-        /// andere Vorbereitungsarbeiten 
-        /// erledigt sind</returns>
-        public T Produziere<T>()
+        /// <typeparam name="T">Der Typ des Managers</typeparam>
+        /// <returns>Die Instanz des Managers</returns>
+        public virtual T GetManager<T>() where T : AppObject, new()
+        {
+            return (T)_managerCache.GetOrAdd(typeof(T), _ =>
+            {
+                return this.Produziere<T>();
+            });
+        }
+
+        #region Anwendungsobjekt-Fabrik
+
+        public virtual T Produziere<T>()
             where T : AppObject, new()
         {
             T NeuesObjekt = new();
 
-            // Das neue Anwendungsobjekt
-            // vorbereiten..
-
-
-            // (1) Diese Infrastruktur weitergeben
             NeuesObjekt.Kontext = this;
 
 #if DEBUG
-            // (2) Im Visual Studio Ausgabefenster
-            //     im Fehlerfall einen Eintrag erstellen
             NeuesObjekt.FehlerAufgetreten
                 += (sender, e)
                 => System.Diagnostics.Debug.WriteLine(
                     $"==> FEHLER! {sender} Ausnahme \"{e.Ursache.Message}\"");
 
-            // (3) Im Ausgabefenster eine Produktionsmeldung
             System.Diagnostics.Debug.WriteLine(
                 $"==> {NeuesObjekt} produziert und initialisiert...");
-
 #endif
-            //Damit beim Protokoll keine Rekursion auftritt
-            if (this._Log != null)
+            if (this.Log != null)
             {
                 this.Log.Eintragen($"==> {NeuesObjekt} produziert und initialisiert...");
             }
@@ -59,52 +56,13 @@ namespace Zenox.Wpf.Core.Common.MVVM.FactoryInjection
 
         #endregion Anwendungsobjekt-Fabrik
 
-        /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private AppLogManager _Log = null!;
+        // Generische Property für LogManager
+        public AppLogManager Log => GetManager<AppLogManager>();
 
-        /// <summary>
-        /// Ruft den Protokolldienst ab
-        /// </summary>
-        public AppLogManager Log
-        {
-            get
-            {
-                if (this._Log == null)
-                {
-                    this._Log = this.Produziere<AppLogManager>();
-                }
+        // Generische Property für SprachenManager
+        public AppSprachenManager Sprachen => GetManager<AppSprachenManager>();
 
-                return this._Log;
-            }
-        }
-
-        #region Sprachendienst
-
-        /// <summary>
-        /// Internes Feld für die Eigenschaft
-        /// </summary>
-        private AppSprachenManager _Sprachen = null!;
-
-        /// <summary>
-        /// Ruft den Dienst zum Arbeiten
-        /// mit den Anwendungssprachen ab
-        /// </summary>
-        public AppSprachenManager Sprachen
-        {
-            get
-            {
-                if (this._Sprachen == null)
-                {
-                    this._Sprachen
-                        = this.Produziere<AppSprachenManager>();
-                }
-
-                return this._Sprachen;
-            }
-        }
-
-        #endregion Sprachendienst
+        // Weitere Manager können einfach so hinzugefügt werden:
+        // public <ManagerTyp> <ManagerName> => HoleManager<<ManagerTyp>>();
     }
 }
