@@ -29,7 +29,7 @@ namespace Zenox.Wpf.Core.Common.MVVM.Composite
         /// <summary>
         /// Kontext für die Erzeugung von Anwendungsobjekten (z.B. ViewModels)
         /// </summary>
-        public virtual AppKontext AppKontext { get; }
+        public virtual AppKontext Kontext { get; }
 
         /// <summary>
         /// Erstellt eine neue Instanz des CompositeManagers mit optionalem AppKontext.
@@ -37,7 +37,7 @@ namespace Zenox.Wpf.Core.Common.MVVM.Composite
         /// <param name="appKontext">Optionaler AppKontext, ansonsten wird ein neuer erzeugt.</param>
         public CompositeModuleHandler(AppKontext? appKontext = null)
         {
-            AppKontext = appKontext ?? new AppKontext();
+            Kontext = appKontext ?? new AppKontext();
         }
 
         /// <summary>
@@ -71,6 +71,8 @@ namespace Zenox.Wpf.Core.Common.MVVM.Composite
                 if (!_Modules.TryGetValue(moduleName, out var Module))
                 {
                     RegisterModule(moduleName, Modul);
+
+                    _Modules.TryGetValue(moduleName, out Module);
                 }
 
                 var view = new TView();
@@ -79,7 +81,7 @@ namespace Zenox.Wpf.Core.Common.MVVM.Composite
                 // Wenn das ViewModel von AppObject ableitet, über AppKontext erzeugen
                 if (typeof(IAppObject).IsAssignableFrom(typeof(TViewModel)))
                 {
-                    viewModel = (TViewModel)(object)AppKontext.GetManager<TViewModel>();
+                    viewModel = (TViewModel)(object)Kontext.GetManager<TViewModel>();
                 }
                 else
                 {
@@ -91,9 +93,10 @@ namespace Zenox.Wpf.Core.Common.MVVM.Composite
             }
             catch (Exception ex)
             {
-                AppKontext.Log.OnFehlerAufgetreten(new FehlerAufgetretenEventArgs(ex));
+                Kontext.Log.OnFehlerAufgetreten(new FehlerAufgetretenEventArgs(ex));
             }
         }
+
 
         /// <summary>
         /// Lädt eine View und das zugehörige ViewModel aus einer angegebenen Assembly in das angegebene Modul.
@@ -136,7 +139,7 @@ namespace Zenox.Wpf.Core.Common.MVVM.Composite
                     // AppKontext.GetManager<T> benötigt einen generischen Typ zur Compilezeit.
                     // Daher wird hier per Reflection aufgerufen:
                     var getManagerMethod = typeof(AppKontext).GetMethod("GetManager")!.MakeGenericMethod(viewModelType);
-                    viewModel = getManagerMethod.Invoke(AppKontext, null);
+                    viewModel = getManagerMethod.Invoke(Kontext, null);
                 }
                 else
                 {
@@ -148,7 +151,7 @@ namespace Zenox.Wpf.Core.Common.MVVM.Composite
             }
             catch (Exception ex)
             {
-                AppKontext.Log.OnFehlerAufgetreten(new FehlerAufgetretenEventArgs(ex));
+                Kontext.Log.OnFehlerAufgetreten(new FehlerAufgetretenEventArgs(ex));
             }
         }
 

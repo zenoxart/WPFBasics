@@ -39,7 +39,7 @@ namespace Zenox.Wpf.Core.Common.MVVM.FactoryInjection
             System.Diagnostics.Debug.WriteLine(
                 $"==> {NeuesObjekt} produziert und initialisiert...");
 #endif
-            if (this.Log != null)
+            if (this._log != null)
             {
                 this.Log.Eintragen($"==> {NeuesObjekt} produziert und initialisiert...");
             }
@@ -54,15 +54,27 @@ namespace Zenox.Wpf.Core.Common.MVVM.FactoryInjection
             return NeuesObjekt;
         }
 
-        #endregion Anwendungsobjekt-Fabrik
 
-        // Generische Property für LogManager
-        public AppLogManager Log => GetManager<AppLogManager>();
 
-        // Generische Property für SprachenManager
+        private AppLogManager _log;
+        /// <summary>
+        /// Ruft den Anwendungsprotokoll-Manager ab, der für die Verwaltung und den Zugriff auf protokollbezogene Funktionalitäten verwendet wird.
+        /// </summary>
+        public AppLogManager Log
+        {
+            get
+            {
+                this._log = this.Produziere<AppLogManager>();
+                return _log;
+            }
+        }
+
+
+        /// <summary>
+        /// Ruft den Manager ab, der für die Verwaltung der Anwendungssprachen zuständig ist.
+        /// </summary>
         public AppSprachenManager Sprachen => GetManager<AppSprachenManager>();
 
-        // Weitere Manager können einfach so hinzugefügt werden:
-        // public <ManagerTyp> <ManagerName> => HoleManager<<ManagerTyp>>();
+        #endregion Anwendungsobjekt-Fabrik
     }
 }

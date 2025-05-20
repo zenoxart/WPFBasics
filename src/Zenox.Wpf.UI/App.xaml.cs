@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Zenox.Wpf.Core.Common.MVVM.FactoryInjection;
+using Zenox.Wpf.Core.Common.MVVM.Composite;
 using Zenox.Wpf.UI.MVVM.ViewModel;
 using Zenox.Wpf.UI.Properties;
 
@@ -10,8 +10,11 @@ namespace Zenox.Wpf.UI;
 /// </summary>
 public partial class App : Application
 {
+    /// <summary>
+    /// Ruft den CompositeModuleHandler ab oder legt ihn fest, der für die Verwaltung und Koordination aller Anwendungs-Module verantwortlich ist.
+    /// </summary>
+    protected CompositeModuleHandler ModuleHandler { get; set; } = null!;
 
-    protected AppKontext Kontext { get; set; } = null!;
 
     private void Application_Startup(object sender, StartupEventArgs e)
     {
@@ -21,20 +24,22 @@ public partial class App : Application
         //var mainWindow = new MainWindow();
         //mainWindow.Show();
 
-        Kontext = new AppKontext();
+        ModuleHandler = new CompositeModuleHandler();
 
-        Kontext.Sprachen.Festlegen(Settings.Default.LocalisationISO);
+        ModuleHandler.Kontext.Sprachen.Festlegen(Settings.Default.LocalisationISO);
 
-        var appModel = Kontext.Produziere<AppViewModel>();
+        var Shell = new MainAppShell();
 
-        appModel.UIAnzeigen();
+        Shell.Show();
+
+        ModuleHandler.LoadView<MainWindow, AppViewModel>("MainView", Shell.MainModul);
 
     }
 
     protected override void OnExit(ExitEventArgs e)
     {
         // Die aktuelle Sprache setzen
-        Settings.Default.LocalisationISO = this.Kontext.Sprachen.AktuelleSprache.Code;
+        Settings.Default.LocalisationISO = this.ModuleHandler.Kontext.Sprachen.AktuelleSprache.Code;
 
         // Die aktuelle Sprache speichern
         Settings.Default.Save();
