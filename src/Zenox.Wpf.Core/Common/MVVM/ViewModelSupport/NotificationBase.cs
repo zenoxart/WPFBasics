@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Zenox.Wpf.Core.Common.Command;
 using Zenox.Wpf.Core.Common.MVVM.FactoryInjection;
 
 namespace Zenox.Wpf.Core.Common.MVVM.ViewModelSupport
@@ -41,5 +42,43 @@ namespace Zenox.Wpf.Core.Common.MVVM.ViewModelSupport
             OnPropertyChanged(propertyName);
             return true;
         }
+
+        /// <summary>
+        /// Ermöglicht einen Leichteren Aufruf für Setter mit UI-Nofitication
+        /// </summary>
+        /// <typeparam name="T">Datentyp der Eigenschaft</typeparam>
+        /// <param name="field">Field-Property/private-Property</param>
+        /// <param name="value">Einkommender Wert</param>
+        /// <param name="propertyName">Eigenschaft, die eine Binding-Aktuallisierung benötigt</param>
+        /// <example> public string Name
+        ///{
+        ///    get => field;
+        ///    set => SetProperty(ref field, value);
+        ///}
+        ///</example>
+        /// <returns>Status, ob das Property wirklich aktuallisiert wurde</returns>
+        protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        {
+            try
+            {
+                if (EqualityComparer<T>.Default.Equals(field, value))
+                    return false;
+
+                field = value;
+
+                OnPropertyChanged(propertyName);
+                return true;
+
+            }
+            catch (Exception)
+            {
+                // TODO: Error-Message-Handling LOGGING!
+                throw;
+            }
+
+
+        }
+
+        public RelayCommandPool CommandPool { get; } = [];
     }
 }

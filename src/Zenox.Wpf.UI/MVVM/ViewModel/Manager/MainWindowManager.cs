@@ -105,6 +105,7 @@ namespace Zenox.Wpf.UI.MVVM.ViewModel.Manager
                 _ => { Status = "Admin-Befehl ausgeführt."; },
                 _ => true,
                 PermissionType.Admin));
+
         }
 
         #endregion

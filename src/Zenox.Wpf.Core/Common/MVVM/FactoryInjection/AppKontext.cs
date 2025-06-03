@@ -53,6 +53,58 @@ namespace Zenox.Wpf.Core.Common.MVVM.FactoryInjection
 
             return NeuesObjekt;
         }
+        // Schritt-für-Schritt-Plan (Pseudocode):
+        // 1. Überprüfe, ob param null oder leer ist. Wenn ja, verwende Standardkonstruktor wie bisher.
+        // 2. Suche einen passenden Konstruktor für T anhand der Typen in param.
+        // 3. Erzeuge eine Instanz von T mit Activator.CreateInstance und übergebe param.
+        // 4. Setze Kontext und hänge Fehlerbehandlung wie gehabt an.
+        // 5. Rückgabe des erzeugten Objekts.
+
+        public virtual T Produziere<T>(object[] param)
+            where T : AppObject
+        {
+            T NeuesObjekt;
+
+            if (param == null || param.Length == 0)
+            {
+                NeuesObjekt = Activator.CreateInstance<T>();
+            }
+            else
+            {
+                var paramTypes = param.Select(p => p?.GetType() ?? typeof(object)).ToArray();
+                var ctor = typeof(T).GetConstructor(paramTypes);
+                if (ctor == null)
+                {
+                    throw new ArgumentException($"Kein passender Konstruktor für Typ {typeof(T).Name} mit den angegebenen Parametern gefunden.");
+                }
+                NeuesObjekt = (T)ctor.Invoke(param);
+            }
+
+            NeuesObjekt.Kontext = this;
+
+#if DEBUG
+            NeuesObjekt.FehlerAufgetreten
+                += (sender, e)
+                => System.Diagnostics.Debug.WriteLine(
+                    $"==> FEHLER! {sender} Ausnahme \"{e.Ursache.Message}\"");
+
+            System.Diagnostics.Debug.WriteLine(
+                $"==> {NeuesObjekt} produziert und initialisiert...");
+#endif
+            if (this._log != null)
+            {
+                this.Log.Eintragen($"==> {NeuesObjekt} produziert und initialisiert...");
+            }
+            NeuesObjekt.FehlerAufgetreten
+                += (sender, e)
+                => this.Log.Eintragen(
+                    $"==> FEHLER! {sender} Ausnahme \"{e.Ursache.Message}\"",
+                    LogEintragTyp.Fehler);
+
+            // Hier weitere Initalisierungen ergänzen
+
+            return NeuesObjekt;
+        }
 
 
 

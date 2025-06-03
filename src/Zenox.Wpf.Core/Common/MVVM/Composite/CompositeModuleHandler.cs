@@ -24,12 +24,12 @@ namespace Zenox.Wpf.Core.Common.MVVM.Composite
     /// </example>
     public class CompositeModuleHandler
     {
-        private readonly Dictionary<string, ContentControl> _Modules = new();
+        protected readonly Dictionary<string, ContentControl> _Modules = new();
 
         /// <summary>
         /// Kontext für die Erzeugung von Anwendungsobjekten (z.B. ViewModels)
         /// </summary>
-        public virtual AppKontext Kontext { get; }
+        public virtual AppKontext Kontext { get; set; }
 
         /// <summary>
         /// Erstellt eine neue Instanz des CompositeManagers mit optionalem AppKontext.
@@ -59,7 +59,7 @@ namespace Zenox.Wpf.Core.Common.MVVM.Composite
         /// <typeparam name="TView">Der Typ der View (muss FrameworkElement sein).</typeparam>
         /// <typeparam name="TViewModel">Der Typ des ViewModels.</typeparam>
         /// <param name="moduleName">Der Name der ZielModule.</param>
-        public void LoadView<TView, TViewModel>(
+        public virtual void LoadView<TView, TViewModel>(
             string moduleName,
             ContentControl Modul = null)
             where TView : FrameworkElement, new()
@@ -67,15 +67,6 @@ namespace Zenox.Wpf.Core.Common.MVVM.Composite
         {
             try
             {
-
-                if (!_Modules.TryGetValue(moduleName, out var Module))
-                {
-                    RegisterModule(moduleName, Modul);
-
-                    _Modules.TryGetValue(moduleName, out Module);
-                }
-
-                var view = new TView();
                 TViewModel viewModel;
 
                 // Wenn das ViewModel von AppObject ableitet, über AppKontext erzeugen
@@ -88,7 +79,48 @@ namespace Zenox.Wpf.Core.Common.MVVM.Composite
                     viewModel = new TViewModel();
                 }
 
+                if (!_Modules.TryGetValue(moduleName, out var Module))
+                {
+                    RegisterModule(moduleName, Modul);
+
+                    _Modules.TryGetValue(moduleName, out Module);
+                }
+
+                var view = new TView();
+
+
                 view.DataContext = viewModel;
+                Module.Content = view;
+            }
+            catch (Exception ex)
+            {
+                Kontext.Log.OnFehlerAufgetreten(new FehlerAufgetretenEventArgs(ex));
+            }
+        }
+        /// <summary>
+        /// Lädt eine View in die angegebene Module (ViewModel muss im Nachhinein hinzugebunden werden!).
+        /// Das ViewModel wird über den AppKontext erzeugt, sofern es von AppObject ableitet.
+        /// </summary>
+        /// <typeparam name="TView">Der Typ der View (muss FrameworkElement sein).</typeparam>
+        /// <typeparam name="TViewModel">Der Typ des ViewModels.</typeparam>
+        /// <param name="moduleName">Der Name der ZielModule.</param>
+        public void LoadView<TView>(
+            string moduleName,
+            ContentControl Modul = null)
+            where TView : FrameworkElement, new()
+        {
+            try
+            {
+
+                if (!_Modules.TryGetValue(moduleName, out var Module))
+                {
+                    RegisterModule(moduleName, Modul);
+
+                    _Modules.TryGetValue(moduleName, out Module);
+                }
+
+                var view = new TView();
+
                 Module.Content = view;
             }
             catch (Exception ex)

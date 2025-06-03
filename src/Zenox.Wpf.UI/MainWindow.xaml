@@ -62,5 +62,7 @@
 					Height="35"
 					Content="OpenExecutionLog" />
 		</StackPanel>
+		
+		
 	</Grid>
 </UserControl>
